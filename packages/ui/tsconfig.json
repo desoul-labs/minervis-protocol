@@ -1,5 +1,9 @@
 {
-  "extends": "tsconfig/react-library.json",
-  "include": ["."],
-  "exclude": ["dist", "build", "node_modules"]
+  "extends": "@minervis-protocol/configs/ts/react-library.json",
+  "include": ["src"],
+  "exclude": ["dist", "build", "node_modules"],
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "jsx": "react-jsx"
+  }
 }

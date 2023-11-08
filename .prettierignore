@@ -1,0 +1,5 @@
+node_modules
+out
+.turbo
+.pnpm-lock.yaml
+apps/game/src/worlds

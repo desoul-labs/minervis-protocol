@@ -4,9 +4,17 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [".next/**", "!.next/cache/**"]
+      "env": ["NEXT_PUBLIC_WC_PROJECT_ID", "NEXT_PUBLIC_MIXPANEL_TOKEN"],
+      "outputs": [
+        ".next/**",
+        "!.next/cache/**",
+        "dist/**",
+        "storybook-static/**"
+      ]
     },
     "lint": {},
+    "test": {},
+    "e2e": {},
     "dev": {
       "cache": false,
       "persistent": true

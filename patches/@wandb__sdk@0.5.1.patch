@@ -1,0 +1,26 @@
+diff --git a/dist/sdk/integrations/langchain/index.cjs b/dist/sdk/integrations/langchain/index.cjs
+index b874b9af796fc0dbdbf6a2625b55ca7f7a2f0705..f7027b8c590c75c0397dd71d40807480e050eb15 100644
+--- a/dist/sdk/integrations/langchain/index.cjs
++++ b/dist/sdk/integrations/langchain/index.cjs
+@@ -28,7 +28,7 @@ class WandbTracer extends callbacks_1.BaseTracer {
+         const tracer = new WandbTracer();
+         await tracer.initRun(runArgs);
+         const handlers = [tracer];
+-        const manager = await callbacks_1.CallbackManager.configure(handlers, additionalHandlers, {
++        const manager = await callbacks_1.CallbackManager.configure(handlers, additionalHandlers, [], [], undefined, undefined, {
+             verbose,
+         });
+         return manager;
+diff --git a/dist/sdk/integrations/langchain/index.js b/dist/sdk/integrations/langchain/index.js
+index e5a92c8a185066984db5c75d29582fe1e55c099a..bf2a33866482024429495006c94015c515ccc99e 100644
+--- a/dist/sdk/integrations/langchain/index.js
++++ b/dist/sdk/integrations/langchain/index.js
+@@ -22,7 +22,7 @@ class WandbTracer extends BaseTracer {
+         const tracer = new WandbTracer();
+         await tracer.initRun(runArgs);
+         const handlers = [tracer];
+-        const manager = await CallbackManager.configure(handlers, additionalHandlers, {
++        const manager = await CallbackManager.configure(handlers, additionalHandlers, [], [], undefined, undefined, {
+             verbose,
+         });
+         return manager;

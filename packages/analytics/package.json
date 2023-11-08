@@ -1,0 +1,28 @@
+{
+  "name": "@minervis-protocol/analytics",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.lib.json",
+    "dev": "tsc --watch",
+    "lint": "eslint .",
+    "test": "jest --passWithNoTests"
+  },
+  "prettier": "@minervis-protocol/configs/prettier/base",
+  "dependencies": {
+    "mixpanel-browser": "2.48.1"
+  },
+  "devDependencies": {
+    "@minervis-protocol/configs": "workspace:*",
+    "@testing-library/jest-dom": "6.4.1",
+    "@testing-library/react": "14.2.0",
+    "@types/mixpanel-browser": "2.48.1",
+    "@types/node": "20.11.15",
+    "@types/react": "18.2.51",
+    "@types/react-dom": "18.2.18",
+    "react": "18.2.0",
+    "typescript": "5.3.3"
+  }
+}

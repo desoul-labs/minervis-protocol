@@ -1,26 +1,43 @@
 {
   "name": "web",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
+    "component": "cypress open --component",
+    "component:headless": "cypress run --component",
+    "dev": "next dev",
+    "e2e": "start-server-and-test dev http://localhost:3000 \"cypress open --e2e\"",
+    "e2e:headless": "start-server-and-test dev http://localhost:3000 \"cypress run --e2e\"",
+    "lint": "next lint",
     "start": "next start",
-    "lint": "next lint"
+    "test": "jest --passWithNoTests",
+    "test:ci": "jest --ci --coverage",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch"
   },
+  "prettier": "@minervis-protocol/configs/prettier/tailwindcss",
   "dependencies": {
-    "next": "^13.4.19",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "ui": "workspace:*"
+    "@minervis-protocol/ui": "workspace:*",
+    "next": "14.1.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^13.4.19",
-    "@types/node": "^17.0.12",
-    "@types/react": "^18.0.22",
-    "@types/react-dom": "^18.0.7",
-    "eslint-config-custom": "workspace:*",
-    "tsconfig": "workspace:*",
-    "typescript": "^4.5.3"
+    "@cypress/react18": "2.0.0",
+    "@minervis-protocol/configs": "workspace:*",
+    "@next/eslint-plugin-next": "14.1.0",
+    "@testing-library/jest-dom": "6.4.1",
+    "@testing-library/react": "14.2.0",
+    "@testing-library/user-event": "14.5.2",
+    "@types/node": "20.11.15",
+    "@types/react": "18.2.51",
+    "@types/react-dom": "18.2.18",
+    "autoprefixer": "10.4.17",
+    "cypress": "13.6.4",
+    "eslint-config-prettier": "9.1.0",
+    "postcss": "8.4.33",
+    "tailwindcss": "3.4.1",
+    "typescript": "5.3.3"
   }
 }

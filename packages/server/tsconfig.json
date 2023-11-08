@@ -1,0 +1,5 @@
+{
+  "extends": "@minervis-protocol/configs/ts/base.json",
+  "include": ["**/*.d.ts", "**/*.ts", "jest.config.js"],
+  "exclude": ["dist", "build", "node_modules"]
+}

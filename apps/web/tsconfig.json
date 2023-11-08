@@ -1,8 +1,12 @@
 {
-  "extends": "tsconfig/nextjs.json",
+  "extends": "@minervis-protocol/configs/ts/nextjs.json",
   "compilerOptions": {
-    "plugins": [{ "name": "next" }]
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "tailwind.configjts", "jest.config.js"],
   "exclude": ["node_modules"]
 }

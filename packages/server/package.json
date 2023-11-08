@@ -1,0 +1,26 @@
+{
+  "name": "@minervis-protocol/server",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "types": "src/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.lib.json",
+    "dev": "tsc --watch",
+    "lint": "eslint .",
+    "test": "jest --passWithNoTests"
+  },
+  "prettier": "@minervis-protocol/configs/prettier/base",
+  "dependencies": {
+    "@minervis-protocol/utils": "workspace:*",
+    "convex": "1.8.0",
+    "js-xxhash": "3.0.1",
+    "radash": "11.0.0",
+    "zod": "3.22.4"
+  },
+  "devDependencies": {
+    "@minervis-protocol/configs": "workspace:*",
+    "@types/node": "20.11.15",
+    "typescript": "5.3.3"
+  }
+}

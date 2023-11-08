@@ -1,0 +1,18 @@
+/** @type {import('jest').Config} */
+module.exports = {
+  roots: ["<rootDir>"],
+  testEnvironment: "jsdom",
+  transform: {
+    "^.+\\.tsx?$": "ts-jest",
+  },
+  moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
+  modulePathIgnorePatterns: [
+    "<rootDir>/test/__fixtures__",
+    "<rootDir>/node_modules",
+    "<rootDir>/dist",
+  ],
+  setupFilesAfterEnv: [
+    "<rootDir>/node_modules/@minervis-protocol/configs/jest/setup.js",
+  ],
+  preset: "ts-jest",
+};

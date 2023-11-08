@@ -1,0 +1,29 @@
+{
+  "name": "@minervis-protocol/hooks",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.lib.json",
+    "dev": "tsc --watch",
+    "lint": "eslint .",
+    "test": "jest --passWithNoTests"
+  },
+  "prettier": "@minervis-protocol/configs/prettier/base",
+  "dependencies": {
+    "@minervis-protocol/server": "workspace:*",
+    "@minervis-protocol/utils": "workspace:*",
+    "convex": "1.8.0"
+  },
+  "devDependencies": {
+    "@minervis-protocol/configs": "workspace:*",
+    "@testing-library/jest-dom": "6.4.1",
+    "@testing-library/react": "14.2.0",
+    "@types/node": "20.11.15",
+    "@types/react": "18.2.51",
+    "@types/react-dom": "18.2.18",
+    "react": "18.2.0",
+    "typescript": "5.3.3"
+  }
+}

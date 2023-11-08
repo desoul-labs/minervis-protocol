@@ -1,0 +1,22 @@
+{
+  "name": "@minervis-protocol/types",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.lib.json",
+    "dev": "tsc --watch",
+    "lint": "eslint .",
+    "test": "jest --passWithNoTests"
+  },
+  "prettier": "@minervis-protocol/configs/prettier/base",
+  "devDependencies": {
+    "@minervis-protocol/configs": "workspace:*",
+    "@types/node": "20.11.15",
+    "@types/react": "18.2.51",
+    "@types/react-dom": "18.2.18",
+    "react": "18.2.0",
+    "typescript": "5.3.3"
+  }
+}

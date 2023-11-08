@@ -1,0 +1,91 @@
+{
+  "folders": [
+    {
+      "path": "../"
+    },
+    {
+      "path": "../apps/web"
+    },
+    {
+      "path": "../apps/interface"
+    },
+    {
+      "path": "../apps/docs"
+    },
+    {
+      "path": "../apps/storybook"
+    },
+    {
+      "path": "../packages/ui"
+    },
+    {
+      "path": "../packages/server"
+    },
+    {
+      "path": "../packages/ai"
+    },
+    {
+      "path": "../packages/analytics"
+    },
+    {
+      "path": "../packages/utils"
+    },
+    {
+      "path": "../packages/contracts"
+    },
+    {
+      "path": "../packages/hooks"
+    },
+    {
+      "path": "../packages/types"
+    },
+    {
+      "path": "../packages/configs"
+    }
+  ],
+  "settings": {
+    "eslint.workingDirectories": [
+      {
+        "mode": "auto"
+      }
+    ],
+    "javascript.suggestionActions.enabled": false,
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+      }
+    },
+    "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+      }
+    },
+    "search.followSymlinks": false,
+    "files.autoSave": "onFocusChange",
+    "files.exclude": {
+      "node_modules/": true,
+      "dist/": true,
+      "coverage/": true,
+      "generated/": true,
+      ".turbo/": true,
+    },
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "jest.autoRun": "off",
+    "jest.jestCommandLine": "pnpm run test --passWithNoTests",
+    "jest.disabledWorkspaceFolders": [
+      "minervis-protocol"
+    ],
+    "files.associations": {
+      "*.css": "tailwindcss",
+    },
+    "[json][typescript]": {
+      "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit"
+      }
+    }
+  }
+}

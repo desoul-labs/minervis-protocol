@@ -1,0 +1,24 @@
+{
+  "extends": "@minervis-protocol/configs/ts/nextjs.json",
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "tailwind.configjts",
+    "jest.config.js",
+    "../../node_modules/@web3modal/scaffold-react/dist/types/index.d.ts"
+  ],
+  "exclude": ["node_modules"]
+}

@@ -1,0 +1,9 @@
+{
+  "extends": "@minervis-protocol/configs/ts/base.json",
+  "compilerOptions": {
+    "module": "esnext",
+    "lib": ["esnext", "dom"]
+  },
+  "include": ["."],
+  "exclude": ["dist", "build", "node_modules"]
+}
