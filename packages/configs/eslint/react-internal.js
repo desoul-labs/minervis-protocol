@@ -23,8 +23,12 @@ module.exports = {
   parserOptions: {
     project,
   },
+  plugins: ["only-warn"],
   globals: {
     JSX: true,
+  },
+  env: {
+    browser: true,
   },
   settings: {
     "import/resolver": {
@@ -34,23 +38,17 @@ module.exports = {
     },
   },
   ignorePatterns: [
+    // Ignore dotfiles
+    ".*.js",
+    "*.config.js",
     "node_modules/",
     "dist/",
-    ".eslintrc.js",
-    "jest.config.js",
-    "tailwind.config.js",
-    "postcss.config.js",
+  ],
+  overrides: [
+    // Force ESLint to detect .tsx files
+    { files: ["*.js?(x)", "*.ts?(x)"] },
   ],
   rules: {
-    "unicorn/filename-case": "off",
     "import/no-default-export": "off",
-    "@typescript-eslint/no-confusing-void-expression": "off",
-    "react/function-component-definition": [
-      "warn",
-      {
-        namedComponents: "arrow-function",
-        unnamedComponents: "arrow-function",
-      },
-    ],
   },
 };

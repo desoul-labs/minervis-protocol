@@ -1,6 +1,11 @@
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
-  extends: ['@minervis-protocol/configs/eslint/library'].map(require.resolve),
+  root: true,
+  extends: [require.resolve('@minervis-protocol/configs/eslint/library')],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    project: true,
+  },
   rules: {
     'no-console': 'off',
     'unicorn/filename-case': 'off',

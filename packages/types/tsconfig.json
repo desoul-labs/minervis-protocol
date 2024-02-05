@@ -1,5 +1,0 @@
-{
-  "extends": "@minervis-protocol/configs/ts/base.json",
-  "include": ["."],
-  "exclude": ["dist", "build", "node_modules"]
-}

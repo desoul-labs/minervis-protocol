@@ -1,5 +1,8 @@
 {
-  "extends": "@minervis-protocol/configs/ts/base.json",
-  "include": ["**/*.d.ts", "**/*.ts", "jest.config.js"],
+  "extends": "@minervis-protocol/configs/typescript/base.json",
+  "include": ["**/*.ts"],
+  "compilerOptions": {
+    "rootDirs": ["src", "src/api/_generated"]
+  },
   "exclude": ["dist", "build", "node_modules"]
 }

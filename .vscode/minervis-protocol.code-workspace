@@ -28,16 +28,13 @@
       "path": "../packages/analytics"
     },
     {
-      "path": "../packages/utils"
+      "path": "../packages/web3"
     },
     {
       "path": "../packages/contracts"
     },
     {
       "path": "../packages/hooks"
-    },
-    {
-      "path": "../packages/types"
     },
     {
       "path": "../packages/configs"

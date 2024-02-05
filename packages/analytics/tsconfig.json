@@ -1,8 +1,8 @@
 {
-  "extends": "@minervis-protocol/configs/ts/react-library.json",
-  "include": ["src"],
-  "exclude": ["dist", "build", "node_modules"],
+  "extends": "@minervis-protocol/configs/typescript/react-library.json",
+  "include": ["**/*.ts", "**/*.tsx"],
   "compilerOptions": {
-    "jsx": "react-jsx"
-  }
+    "rootDir": "src"
+  },
+  "exclude": ["dist", "build", "node_modules"]
 }

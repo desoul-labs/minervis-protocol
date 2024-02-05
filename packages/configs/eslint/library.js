@@ -21,9 +21,13 @@ module.exports = {
   parserOptions: {
     project,
   },
+  plugins: ["only-warn"],
   globals: {
     React: true,
     JSX: true,
+  },
+  env: {
+    node: true,
   },
   settings: {
     "import/resolver": {
@@ -32,8 +36,16 @@ module.exports = {
       },
     },
   },
-  ignorePatterns: ["node_modules/", "dist/", ".eslintrc.js", "jest.config.js"],
-  rules: {
-    // add specific rules configurations here
-  },
+  ignorePatterns: [
+    // Ignore dotfiles
+    ".*.js",
+    "*.config.js",
+    "node_modules/",
+    "dist/",
+  ],
+  overrides: [
+    {
+      files: ["*.js?(x)", "*.ts?(x)"],
+    },
+  ],
 };

@@ -12,4 +12,9 @@ module.exports = {
     extend: {},
   },
   darkMode: "class",
+  plugins: [
+    "@tailwindcss/aspect-ratio",
+    "@tailwindcss/container-queries",
+    "@tailwindcss/typography",
+  ].map(require),
 };

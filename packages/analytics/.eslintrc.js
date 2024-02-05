@@ -1,4 +1,9 @@
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
-  extends: ['@minervis-protocol/configs/eslint/react-internal'].map(require.resolve),
+  root: true,
+  extends: [require.resolve('@minervis-protocol/configs/eslint/react-internal')],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    project: true,
+  },
 };

@@ -1,9 +1,9 @@
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
-  extends: ['@minervis-protocol/configs/eslint/react-internal'].map(require.resolve),
-  rules: {
-    'unicorn/filename-case': 'off',
-    'import/no-default-export': 'off',
-    '@typescript-eslint/no-confusing-void-expression': 'off',
+  root: true,
+  extends: [require.resolve('@minervis-protocol/configs/eslint/react-internal')],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    project: true,
   },
 };

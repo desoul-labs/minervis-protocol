@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    /* Your default theme */
+    --background: #fafafa;
+    --foreground: #263238;
+  }
+
+  [data-theme='dark'] {
+    --background: #263238;
+    --foreground: #fafafa;
+  }
+}

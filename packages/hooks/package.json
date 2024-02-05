@@ -13,7 +13,6 @@
   "prettier": "@minervis-protocol/configs/prettier/base",
   "dependencies": {
     "@minervis-protocol/server": "workspace:*",
-    "@minervis-protocol/utils": "workspace:*",
     "convex": "1.8.0"
   },
   "devDependencies": {

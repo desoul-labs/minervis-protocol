@@ -29,6 +29,11 @@ module.exports = {
     React: true,
     JSX: true,
   },
+  env: {
+    node: true,
+    browser: true,
+  },
+  plugins: ["only-warn"],
   settings: {
     "import/resolver": {
       typescript: {
@@ -36,18 +41,14 @@ module.exports = {
       },
     },
   },
-  ignorePatterns: ["node_modules/", "dist/"],
-  // add rules configurations here
+  ignorePatterns: [
+    // Ignore dotfiles
+    ".*.js",
+    "*.config.js",
+    "node_modules/",
+  ],
+  overrides: [{ files: ["*.js?(x)", "*.ts?(x)"] }],
   rules: {
     "import/no-default-export": "off",
-    "unicorn/filename-case": "off",
-    "@typescript-eslint/no-confusing-void-expression": "off",
-    "react/function-component-definition": [
-      "warn",
-      {
-        namedComponents: "arrow-function",
-        unnamedComponents: "arrow-function",
-      },
-    ],
   },
 };

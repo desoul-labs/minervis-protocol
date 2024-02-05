@@ -6,15 +6,15 @@
   "types": "src/index.d.ts",
   "scripts": {
     "build": "tsc -p tsconfig.lib.json",
-    "dev": "tsc --watch",
+    "dev": "convex dev",
     "lint": "eslint .",
     "test": "jest --passWithNoTests"
   },
   "prettier": "@minervis-protocol/configs/prettier/base",
   "dependencies": {
-    "@minervis-protocol/utils": "workspace:*",
     "convex": "1.8.0",
-    "js-xxhash": "3.0.1",
+    "convex-ents": "0.4.2",
+    "convex-helpers": "0.1.15",
     "radash": "11.0.0",
     "zod": "3.22.4"
   },
