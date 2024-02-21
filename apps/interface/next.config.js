@@ -1,4 +1,5 @@
-module.exports = {
+/** @type {import('next').NextConfig} */
+export default {
   reactStrictMode: true,
   transpilePackages: ['@minervis-protocol/ui'],
   webpack: (config, context) => {

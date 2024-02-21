@@ -2,7 +2,7 @@
   "extends": "@minervis-protocol/configs/typescript/base.json",
   "include": ["**/*.ts"],
   "compilerOptions": {
-    "rootDirs": ["src", "src/api/_generated"]
+    "rootDir": "src"
   },
   "exclude": ["dist", "build", "node_modules"]
 }

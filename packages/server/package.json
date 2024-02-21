@@ -2,6 +2,7 @@
   "name": "@minervis-protocol/server",
   "version": "0.0.0",
   "license": "MIT",
+  "type": "module",
   "main": "src/index.ts",
   "types": "src/index.d.ts",
   "scripts": {
@@ -12,9 +13,15 @@
   },
   "prettier": "@minervis-protocol/configs/prettier/base",
   "dependencies": {
+    "@langchain/community": "0.0.30",
     "convex": "1.8.0",
     "convex-ents": "0.4.2",
     "convex-helpers": "0.1.15",
+    "d3-dsv": "2",
+    "langchain": "0.1.20",
+    "lucia": "3.0.1",
+    "mammoth": "1.6.0",
+    "pdf-parse": "1.1.1",
     "radash": "11.0.0",
     "zod": "3.22.4"
   },
