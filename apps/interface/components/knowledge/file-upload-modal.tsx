@@ -71,7 +71,7 @@ export default function FileUploadModal(props: Omit<ModalProps, 'children'>): JS
                 color='primary'
                 isDisabled={!formState.isValid}
                 isLoading={formState.isSubmitting}
-                onClick={() => handleSubmit((formData) => onSubmit(formData, onClose))}
+                onClick={handleSubmit((formData) => onSubmit(formData, onClose))}
               >
                 Submit
               </Button>

@@ -38,7 +38,7 @@ const renderCell = (item: FileInfo, key: string | number): JSX.Element => {
           <FileIcon contentType={item.contentType} size={32} />
           <div className='flex flex-col'>
             <p className='text-bold text-sm'>{item.name}</p>
-            <p className='text-bold text-sm text-default-400'>{item.size} MB</p>
+            <p className='text-bold text-sm text-default-400'>{(item.size / 1024 / 1024).toFixed(2)} MB</p>
           </div>
         </div>
       );
