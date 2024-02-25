@@ -2,7 +2,7 @@
 
 import { init, type Config } from 'mixpanel-browser';
 import { useMemo, type ProviderProps } from 'react';
-import { mixpanelContext, type MixpanelContext } from './mixpanelContext';
+import { mixpanelContext, type MixpanelContext } from './mixpanel-context.js';
 
 export interface MixpanelConfig extends Partial<Config> {
   token: string;

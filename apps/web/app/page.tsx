@@ -1,16 +1,8 @@
+import { Card } from '@minervis-protocol/ui/src/components/card';
 import Image from 'next/image';
-import { Card } from '@minervis-protocol/ui/components/card';
 import styles from './page.module.css';
 
-const Gradient = ({
-  conic,
-  className,
-  small,
-}: {
-  small?: boolean;
-  conic?: boolean;
-  className?: string;
-}): JSX.Element => {
+function Gradient({ conic, className, small }: { small?: boolean; conic?: boolean; className?: string }): JSX.Element {
   return (
     <span
       className={[
@@ -23,7 +15,7 @@ const Gradient = ({
         .join(' ')}
     />
   );
-};
+}
 
 const LINKS = [
   {

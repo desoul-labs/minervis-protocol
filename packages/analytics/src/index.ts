@@ -1,1 +1,1 @@
-export * from './mixpanel';
+export * from './mixpanel/index.js';

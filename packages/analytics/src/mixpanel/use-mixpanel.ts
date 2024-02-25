@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { mixpanelContext } from './mixpanelContext';
+import { mixpanelContext } from './mixpanel-context.js';
 
 export const useMixpanel = () => {
   const mixpanel = useContext(mixpanelContext);
@@ -23,7 +23,6 @@ export const useMixpanel = () => {
     track: mixpanel.track,
     trackForms: mixpanel.track_forms,
     trackLinks: mixpanel.track_links,
-    trackPageView: mixpanel.track_pageview,
     trackWithGroups: mixpanel.track_with_groups,
     unregister: mixpanel.unregister,
     people: mixpanel.people,
