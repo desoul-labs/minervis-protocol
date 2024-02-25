@@ -8,21 +8,9 @@ import EarningsOverview from './earnings-overview';
 import FileTable from './file-table';
 import FileUploadModal from './file-upload-modal';
 
-const files = [
-  {
-    id: '1',
-    name: 'Good',
-    extension: 'pdf',
-    size: 5,
-    price: 10,
-    date: new Date(),
-    status: 'processing',
-  } as const,
-];
-
 export default function Knowledge(): JSX.Element {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  const { setShowAuthFlow, isAuthenticated, isFullyConnected } = useDynamicContext();
+  const { setShowAuthFlow, isAuthenticated, isFullyConnected, primaryWallet } = useDynamicContext();
 
   useEffectOnce(() => {
     if (!isAuthenticated || !isFullyConnected) {
@@ -40,7 +28,7 @@ export default function Knowledge(): JSX.Element {
         </Button>
       </div>
       <Divider className='my-4' />
-      <FileTable items={files} />
+      <FileTable address={primaryWallet?.address ?? ''} />
       <FileUploadModal isOpen={isOpen} onOpenChange={onOpenChange} />
     </main>
   );

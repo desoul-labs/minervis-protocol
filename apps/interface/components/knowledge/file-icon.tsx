@@ -8,24 +8,30 @@ import {
 } from '@tabler/icons-react';
 
 export interface FileIconProps extends TablerIconsProps {
-  extension: 'pdf' | 'csv' | 'txt' | 'doc' | 'docx';
+  contentType: string;
 }
 
-export default function FileIcon({ extension, ...props }: FileIconProps) {
-  switch (extension) {
-    case 'pdf':
+export default function FileIcon({ contentType, ...props }: FileIconProps): JSX.Element {
+  switch (contentType) {
+    case 'application/pdf':
       return <IconFileTypePdf {...props} />;
 
-    case 'csv':
+    case 'text/csv':
       return <IconFileTypeCsv {...props} />;
 
-    case 'txt':
+    case 'text/plain':
       return <IconFileTypeTxt {...props} />;
 
-    case 'doc':
+    case 'application/msword':
       return <IconFileTypeDoc {...props} />;
 
-    case 'docx':
+    case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
       return <IconFileTypeDocx {...props} />;
+
+    case 'text/markdown':
+      return <IconFileTypeTxt {...props} />;
+
+    default:
+      return <></>;
   }
 }

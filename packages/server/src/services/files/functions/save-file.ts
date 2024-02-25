@@ -25,19 +25,12 @@ export default mutation({
       throw new ConvexError('File already exists');
     }
 
-    const user = await ctx.db
-      .query('users')
-      .withIndex('by_address', (q) => q.eq('address', args.address))
-      .first();
-    if (!user) {
-      throw new ConvexError('User not found');
-    }
-
     const fileId = await ctx.db.insert('files', {
       storageId: metadata._id,
       name: args.name,
-      userId: user._id,
+      userId: args.address,
       checksum: metadata.sha256,
+      status: 'processing',
     });
 
     await ctx.scheduler.runAfter(0, internal.files.action.processFile, { id: fileId });

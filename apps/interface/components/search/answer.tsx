@@ -2,24 +2,28 @@
 
 import { Button, Divider } from '@nextui-org/react';
 import { IconReload } from '@tabler/icons-react';
-import { useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
-export default function Answer() {
-  const searchParams = useSearchParams();
-  const sourceLinks = ['http://google.co.jp'];
-  const answer = 'This is the answer';
-  const done = true;
+interface AnswerProps {
+  query: string;
+  sourceLinks: string[];
+  answer: string;
+  isLoading?: boolean;
+}
+
+export default function Answer({ query, sourceLinks, answer, isLoading }: AnswerProps): JSX.Element {
+  const router = useRouter();
 
   return (
     <div className='max-w-[800px] space-y-4 px-8 py-16 pb-32 sm:px-24 sm:pt-16'>
-      <div className='overflow-auto text-2xl sm:text-4xl'>{searchParams.get('q')}</div>
+      <div className='overflow-auto text-2xl sm:text-4xl'>{query}</div>
 
       <div className='text-md text-primary'>Answer</div>
       <div className='mt-2 overflow-auto'>{replaceSourcesWithLinks(answer, sourceLinks)}</div>
 
       <Divider className='my-2' />
 
-      {done ? (
+      {isLoading ? (
         <>
           <div className='text-md text-primary'>Sources</div>
 
@@ -39,7 +43,12 @@ export default function Answer() {
 
           <Divider className='my-2' />
 
-          <Button color='primary'>
+          <Button
+            color='primary'
+            onClick={() => {
+              router.push('/');
+            }}
+          >
             <IconReload size={18} />
             Ask New Question
           </Button>

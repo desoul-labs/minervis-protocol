@@ -2,7 +2,7 @@ import { defineTable } from 'convex/server';
 import { v } from 'convex/values';
 
 export default defineTable({
+  fileId: v.id('files'),
   userId: v.string(),
-  activeExpires: v.float64(),
-  idleExpires: v.float64(),
-}).index('by_user_id', ['userId']);
+  reward: v.float64(),
+}).index('by_file_id', ['fileId']);

@@ -5,7 +5,9 @@ export default defineTable({
   storageId: v.id('_storage'),
   name: v.string(),
   checksum: v.string(),
-  userId: v.id('users'),
+  userId: v.string(),
+  status: v.string(),
+  documentCount: v.optional(v.int64()),
 })
   .index('by_checksum', ['checksum'])
   .index('by_user_id', ['userId']);

@@ -9,14 +9,21 @@
  * @module
  */
 
-import type { ApiFromModules, FilterApi, FunctionReference } from 'convex/server';
-import type * as documents_action from '../documents/action.js';
-import type * as documents_mutation from '../documents/mutation.js';
-import type * as documents_query from '../documents/query.js';
-import type * as files_action from '../files/action.js';
-import type * as files_mutation from '../files/mutation.js';
-import type * as files_query from '../files/query.js';
-import type * as users_query from '../users/query.js';
+import type {
+  ApiFromModules,
+  FilterApi,
+  FunctionReference,
+} from "convex/server";
+import type * as auth_action from "../auth/action.js";
+import type * as documents_action from "../documents/action.js";
+import type * as documents_mutation from "../documents/mutation.js";
+import type * as documents_query from "../documents/query.js";
+import type * as files_action from "../files/action.js";
+import type * as files_mutation from "../files/mutation.js";
+import type * as files_query from "../files/query.js";
+import type * as search_action from "../search/action.js";
+import type * as users_mutation from "../users/mutation.js";
+import type * as users_query from "../users/query.js";
 
 /**
  * A utility for referencing Convex functions in your app's API.
@@ -27,13 +34,22 @@ import type * as users_query from '../users/query.js';
  * ```
  */
 declare const fullApi: ApiFromModules<{
-  'documents/action': typeof documents_action;
-  'documents/mutation': typeof documents_mutation;
-  'documents/query': typeof documents_query;
-  'files/action': typeof files_action;
-  'files/mutation': typeof files_mutation;
-  'files/query': typeof files_query;
-  'users/query': typeof users_query;
+  "auth/action": typeof auth_action;
+  "documents/action": typeof documents_action;
+  "documents/mutation": typeof documents_mutation;
+  "documents/query": typeof documents_query;
+  "files/action": typeof files_action;
+  "files/mutation": typeof files_mutation;
+  "files/query": typeof files_query;
+  "search/action": typeof search_action;
+  "users/mutation": typeof users_mutation;
+  "users/query": typeof users_query;
 }>;
-export declare const api: FilterApi<typeof fullApi, FunctionReference<any, 'public'>>;
-export declare const internal: FilterApi<typeof fullApi, FunctionReference<any, 'internal'>>;
+export declare const api: FilterApi<
+  typeof fullApi,
+  FunctionReference<any, "public">
+>;
+export declare const internal: FilterApi<
+  typeof fullApi,
+  FunctionReference<any, "internal">
+>;

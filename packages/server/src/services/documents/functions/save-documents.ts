@@ -19,7 +19,7 @@ export default internalMutation({
   handler: async (ctx, args) => {
     await asyncMap(args.documents, async (doc) => {
       const hash = await digestData(doc.content);
-      ctx.db.insert('documents', {
+      await ctx.db.insert('documents', {
         fileId: args.fileId,
         content: doc.content,
         embedding: doc.embedding,

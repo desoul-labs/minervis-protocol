@@ -1,13 +1,16 @@
+import { api } from '@minervis-protocol/server';
 import type { TableProps } from '@nextui-org/react';
 import { Chip, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow, Tooltip } from '@nextui-org/react';
-import { IconEye, IconTrash } from '@tabler/icons-react';
+import { IconEye, IconStar, IconTrash } from '@tabler/icons-react';
+import { useQuery } from 'convex/react';
 import FileIcon from './file-icon';
 
 const statusColorMap = {
   processing: 'warning',
   completed: 'success',
   failed: 'danger',
-} as const;
+  claimed: 'secondary',
+} as Record<string, 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger'>;
 
 const columns = [
   { name: 'NAME', uid: 'name' },
@@ -20,10 +23,10 @@ const columns = [
 export interface FileInfo {
   id: string;
   name: string;
-  extension: 'pdf' | 'csv' | 'txt' | 'doc' | 'docx';
+  contentType: string;
   size: number;
-  date: Date;
-  status: 'processing' | 'completed' | 'failed';
+  createdAt: number;
+  status: string;
   price?: number;
 }
 
@@ -32,7 +35,7 @@ const renderCell = (item: FileInfo, key: string | number): JSX.Element => {
     case 'name':
       return (
         <div className='flex flex-row items-center gap-1'>
-          <FileIcon extension={item.extension} size={32} />
+          <FileIcon contentType={item.contentType} size={32} />
           <div className='flex flex-col'>
             <p className='text-bold text-sm'>{item.name}</p>
             <p className='text-bold text-sm text-default-400'>{item.size} MB</p>
@@ -50,16 +53,21 @@ const renderCell = (item: FileInfo, key: string | number): JSX.Element => {
         </Chip>
       );
 
-    case 'date':
+    case 'createdAt':
       return (
         <p className='text-bold text-sm' suppressHydrationWarning>
-          {item.date.toLocaleString()}
+          {new Date(item.createdAt).toLocaleDateString()}
         </p>
       );
 
     case 'actions':
       return (
         <div className='relative flex items-center gap-2'>
+          <Tooltip content='Claim'>
+            <span className='cursor-pointer text-lg text-default-400 active:opacity-50'>
+              <IconStar />
+            </span>
+          </Tooltip>
           <Tooltip content='View'>
             <span className='cursor-pointer text-lg text-default-400 active:opacity-50'>
               <IconEye />
@@ -79,10 +87,12 @@ const renderCell = (item: FileInfo, key: string | number): JSX.Element => {
 };
 
 export interface FileTableProps extends Omit<TableProps, 'children'> {
-  items: FileInfo[];
+  address: string;
 }
 
-export default function FileTable({ items, ...props }: FileTableProps) {
+export default function FileTable({ address, ...props }: FileTableProps): JSX.Element {
+  const files = useQuery(api.files.query.listFiles, { size: 10, address });
+
   return (
     <Table {...props} aria-label='File list'>
       <TableHeader columns={columns}>
@@ -92,7 +102,7 @@ export default function FileTable({ items, ...props }: FileTableProps) {
           </TableColumn>
         )}
       </TableHeader>
-      <TableBody items={items}>
+      <TableBody items={files?.items ?? []}>
         {(item) => (
           <TableRow key={item.id}>
             {(columnKey) => {

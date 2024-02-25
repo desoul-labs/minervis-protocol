@@ -2,12 +2,12 @@ import { Inter } from 'next/font/google';
 import type { PropsWithChildren } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { ContextProviders } from './context-providers.js';
-import { TopNavbar } from './top-navbar.js';
+import ContextProviders from './context-providers';
+import TopNavbar from './top-navbar';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export default function Layout({ children }: PropsWithChildren) {
+export default function Layout({ children }: PropsWithChildren): JSX.Element {
   return (
     <html lang='en'>
       <body className={inter.className}>

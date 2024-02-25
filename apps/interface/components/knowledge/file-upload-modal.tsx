@@ -10,13 +10,13 @@ export interface FileUploadFormInput {
   files: FileList | null;
 }
 
-export default function FileUploadModal(props: Omit<ModalProps, 'children'>) {
-  const generateUploadUrl = useMutation(api.api.files.mutation.generateUploadUrl);
-  const saveFile = useMutation(api.api.files.mutation.saveFile);
+export default function FileUploadModal(props: Omit<ModalProps, 'children'>): JSX.Element {
+  const generateUploadUrl = useMutation(api.files.mutation.generateUploadUrl);
+  const saveFile = useMutation(api.files.mutation.saveFile);
   const { primaryWallet } = useDynamicContext();
   const { register, handleSubmit, formState } = useForm<FileUploadFormInput>({ mode: 'onChange' });
 
-  const onSubmit = async (input: FileUploadFormInput, onClose: () => void) => {
+  const onSubmit = async (input: FileUploadFormInput, onClose: () => void): Promise<void> => {
     if (!primaryWallet?.address) {
       throw new Error('No account connected');
     }
@@ -45,7 +45,7 @@ export default function FileUploadModal(props: Omit<ModalProps, 'children'>) {
     <Modal {...props}>
       <ModalContent>
         {(onClose) => (
-          <form onSubmit={handleSubmit((formData) => onSubmit(formData, onClose))}>
+          <form>
             <ModalHeader className='flex flex-col gap-1'>New Knowledge</ModalHeader>
             <ModalBody>
               <Input
@@ -67,7 +67,12 @@ export default function FileUploadModal(props: Omit<ModalProps, 'children'>) {
               <Button color='danger' onPress={onClose} variant='light'>
                 Cancel
               </Button>
-              <Button color='primary' isDisabled={!formState.isValid} isLoading={formState.isSubmitting} type='submit'>
+              <Button
+                color='primary'
+                isDisabled={!formState.isValid}
+                isLoading={formState.isSubmitting}
+                onClick={() => handleSubmit((formData) => onSubmit(formData, onClose))}
+              >
                 Submit
               </Button>
             </ModalFooter>

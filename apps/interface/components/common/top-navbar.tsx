@@ -27,7 +27,7 @@ const menu = [
   },
 ] as const;
 
-export function TopNavbar(props: Omit<NavbarProps, 'children'>) {
+export default function TopNavbar(props: Omit<NavbarProps, 'children'>): JSX.Element {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathName = usePathname();
 

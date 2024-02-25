@@ -62,5 +62,11 @@ export default internalAction({
         embedding: embeddings[i] ?? [],
       })),
     });
+
+    await ctx.runMutation(internal.files.mutation.updateFileStatus, {
+      id: args.id,
+      status: 'completed',
+      documentCount: BigInt(uniqueDocs.length),
+    });
   },
 });

@@ -3,7 +3,7 @@ interface EarningsOverviewProps {
   daily: number;
 }
 
-export default function EarningsOverview(props: EarningsOverviewProps) {
+export default function EarningsOverview(props: EarningsOverviewProps): JSX.Element {
   return (
     <div>
       <p className=''>My Earnings</p>
